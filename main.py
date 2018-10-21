@@ -63,6 +63,8 @@ def is_not_pinned(m):
     return not m.pinned
 
 
-print(os.environ.get('ACCESS_TOKEN'))
-
-client.run('NDk0MTY2MzcxMjgyOTc2Nzc4.Dov8tA.tZLCf3dAxj-AosDLtcxzdz2Buc0')
+access_token = os.environ.get('ACCESS_TOKEN')
+if access_token is not None:
+    client.run(access_token)
+else:
+    print("No Token found! Bot is not running!")
