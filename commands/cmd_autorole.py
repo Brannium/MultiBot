@@ -1,6 +1,6 @@
 import discord
 
-import ConfigManager
+from utility import ConfigManager
 
 cm = ConfigManager
 
