@@ -11,7 +11,6 @@ from commands import cmd_ping, cmd_autorole, cmd_sortConfig
 
 client = discord.Client()
 cm = ConfigManager
-join_time = {}
 
 commands = {
 
@@ -23,8 +22,7 @@ commands = {
 
 
 @client.event
-@asyncio.coroutine
-def on_ready():
+async def on_ready():
     print('Bot is logged in successfully. Running on servers:\n')
     for s in client.servers:
         print(" - %s (%s)" % (s.name, s.id))
@@ -33,7 +31,7 @@ def on_ready():
         if member.status == discord.Status.online:
             onlinetime_manager.set_join_time(member.id)
 
-    yield from client.change_presence(game=Game(name="v0.3"))
+    await client.change_presence(game=Game(name="v0.3.2"))
 
 
 

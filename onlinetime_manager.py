@@ -2,10 +2,10 @@ import time
 
 import discord
 
-import main
 from utility import StatsManager
 
 sm = StatsManager
+join_time = {}
 
 
 async def ex(before, after):
@@ -20,16 +20,16 @@ async def ex(before, after):
 
 def set_join_time(member_id):
 
-    main.join_time[member_id] = time.time()
-    print('%s: %s' % (member_id, main.join_time[member_id]))
+    join_time[member_id] = time.time()
+    print('%s: %s' % (member_id, join_time[member_id]))
 
 
 def save_time(member):
 
     stats = sm.getStats(member.server)
     if member.id in stats['onlinetime']:
-        stats['onlinetime'][member.id] += (time.time() - main.join_time[member.id])
+        stats['onlinetime'][member.id] += (time.time() - join_time[member.id])
     else:
-        stats['onlinetime'][member.id] = time.time() - main.join_time[member.id]
+        stats['onlinetime'][member.id] = time.time() - join_time[member.id]
     sm.saveStats(member.server, stats)
-    del main.join_time[member.id]
+    del join_time[member.id]

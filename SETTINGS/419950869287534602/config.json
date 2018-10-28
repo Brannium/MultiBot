@@ -1,7 +1,11 @@
 {
     "autorole": {
         "enabled": false,
-        "links": {},
-        "permissions": []
+        "links": {
+          "Overwatch": "apfel"
+        },
+        "permissions": [
+          "Admin"
+        ]
     }
 }
