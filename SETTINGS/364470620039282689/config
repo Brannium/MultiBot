@@ -16,7 +16,9 @@
             "Rocket League": "Rocket League",
             "Rainbow Six Siege": "Rainbow Six Siege",
             "Tom Clancy's Rainbow Six Siege": "Rainbow Six Siege",
-            "The Elder Scrolls Online": "ESO"
+            "The Elder Scrolls Online": "ESO",
+            "Fortnite": "Fortnite",
+            "ARK: Survival Evolved"
         },
         "permissions": [
             "Admin",
