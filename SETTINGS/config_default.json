@@ -4,5 +4,9 @@
         "links": {},
         "permissions": [],
         "roleblacklist": []
+    },
+    "autoclear": {
+        "enabled": false,
+        "links": {}
     }
 }

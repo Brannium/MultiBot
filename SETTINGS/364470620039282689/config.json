@@ -29,5 +29,9 @@
             "Moderator",
             "Techniker"
         ]
+    },
+    "autoclear": {
+        "enabled": false,
+        "links": {}
     }
 }

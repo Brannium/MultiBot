@@ -3,10 +3,11 @@ import asyncio as asyncio
 import discord
 from discord import Game, Embed
 
+import autoclear_manager
 from utility import ConfigManager
 import STATICS
 import role_manager
-from commands import cmd_ping, cmd_autorole, cmd_sortConfig
+from commands import cmd_ping, cmd_autorole, cmd_sortConfig, cmd_channelid, cmd_userid
 
 client = discord.Client()
 cm = ConfigManager
@@ -14,8 +15,10 @@ cm = ConfigManager
 commands = {
 
     "autorole": cmd_autorole,
+    "channelid": cmd_channelid,
     "ping": cmd_ping,
-    "sortConfig": cmd_sortConfig
+    "sortConfig": cmd_sortConfig,
+    "userid": cmd_userid
 
 }
 
@@ -44,6 +47,9 @@ def on_message(message):
             yield from client.send_message(message.channel, embed=Embed(color=discord.Color.red(), description=("There is no such command: %s" % invoke)))
 
 
+    print("User %s: %s" % (message.author, message.author.id))
+
+
 @client.event
 async def on_member_update(before, after):
 
@@ -53,15 +59,8 @@ async def on_member_update(before, after):
 
 @client.event
 async def on_voice_state_update(before, after):
-    # Clear textchannel 'musicbot' when Rythm leaves voice channel
-    if after.id == '235088799074484224':
-        if after.voice.voice_channel is None and before.voice.voice_channel is not None:
-            channel = discord.utils.get(after.server.channels, name="musicbot")
-            await client.purge_from(channel, limit=100, check=is_not_pinned)
 
-
-def is_not_pinned(m):
-    return not m.pinned
+    await autoclear_manager.ex(client, before, after)
 
 
 access_token = os.environ.get('ACCESS_TOKEN')

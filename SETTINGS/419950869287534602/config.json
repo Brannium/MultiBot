@@ -1,8 +1,18 @@
 {
     "autorole": {
-        "enabled": false,
-        "links": {},
-        "permissions": [],
+        "enabled": true,
+        "links": {
+            "Overwatch": "Overwatch"
+        },
+        "permissions": [
+            "Admin"
+        ],
         "roleblacklist": []
+    },
+    "autoclear": {
+      "enabled": true,
+      "links": {
+        "422112040770076673": "415062217596076033"
+      }
     }
 }
