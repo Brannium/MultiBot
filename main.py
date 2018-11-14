@@ -5,7 +5,6 @@ from discord import Game, Embed
 
 from utility import ConfigManager
 import STATICS
-import onlinetime_manager
 import role_manager
 from commands import cmd_ping, cmd_autorole, cmd_sortConfig
 
@@ -27,11 +26,7 @@ async def on_ready():
     for s in client.servers:
         print(" - %s (%s)" % (s.name, s.id))
 
-    for member in client.get_all_members():
-        if member.status == discord.Status.online:
-            onlinetime_manager.set_join_time(member.id)
-
-    await client.change_presence(game=Game(name="v0.3.2"))
+    await client.change_presence(game=Game(name="v0.4.0"))
 
 
 
@@ -51,8 +46,6 @@ def on_message(message):
 
 @client.event
 async def on_member_update(before, after):
-
-    await onlinetime_manager.ex(before, after)
 
     if after.game is not None:
         await role_manager.ex(after, client)

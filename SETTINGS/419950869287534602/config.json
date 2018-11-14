@@ -1,11 +1,8 @@
 {
     "autorole": {
         "enabled": false,
-        "links": {
-          "Overwatch": "apfel"
-        },
-        "permissions": [
-          "Admin"
-        ]
+        "links": {},
+        "permissions": [],
+        "roleblacklist": []
     }
 }

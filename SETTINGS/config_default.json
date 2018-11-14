@@ -2,6 +2,7 @@
     "autorole": {
         "enabled": false,
         "links": {},
-        "permissions": []
+        "permissions": [],
+        "roleblacklist": []
     }
 }
