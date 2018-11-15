@@ -10,7 +10,7 @@ def ex(message, invoke, args, client):
         return
 
     member = discord.utils.get(message.server.members, name=arg.split('#')[0], discriminator=arg.split('#')[1])
-    yield from send_embeded_message("%s\'s ID: %s" % (member, message.channel.id), message.channel, discord.Color.blue(), client)
+    yield from send_embeded_message("%s\'s ID: %s" % (member, member.id), message.channel, discord.Color.blue(), client)
 
 
 def send_embeded_message(content, channel, color, client):
