@@ -13,6 +13,7 @@ async def ex(client, before, after):
             if user_id == after.id:
                 if after.voice.voice_channel is None and before.voice.voice_channel is not None:
                     channel = discord.utils.get(after.server.channels, id=channel_id)
+                    print('Clearing channel %s as %s left the voice channel' % (channel.name, user_id))
                     await client.purge_from(channel, limit=100, check=is_not_pinned)
 
 
