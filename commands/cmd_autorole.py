@@ -73,7 +73,7 @@ def ex(message, invoke, args, client):
 
 
 def show_help(message, client):
-    yield from send_embeded_message('Help coming soon!', message.channel, discord.Color.blue(), client)
+    yield from send_embeded_message('Usage:\n--autorole [enable, disable, list]', message.channel, discord.Color.blue(), client)
 
 
 def has_permission(member):
