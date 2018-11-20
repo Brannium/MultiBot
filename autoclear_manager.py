@@ -8,6 +8,7 @@ async def ex(client, before, after):
 
     config = ConfigManager.getConfig(after.server)
     print('running autoclear')
+    print(config)
     if config["autoclear"]["enabled"]:
         print('enabled')
         for channel_id, user_id in config["autoclear"]["links"].items():
