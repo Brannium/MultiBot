@@ -11,7 +11,7 @@ async def ex(client, before, after):
     if config['autoclear']['enabled']:
         print('enabled')
         for channel_id, user_id in config['autoclear']['links'].items():
-            print(user_id)
+            print('User_id: %s, after.id: %s' % (user_id, after.id))
             if user_id == after.id:
                 print('userid')
                 if after.voice.voice_channel is None and before.voice.voice_channel is not None:
