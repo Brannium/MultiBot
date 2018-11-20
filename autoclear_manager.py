@@ -7,16 +7,14 @@ cm = ConfigManager
 async def ex(client, before, after):
 
     config = ConfigManager.getConfig(after.server)
-    print('running autoclear')
+
     if config['autoclear']['enabled']:
-        print('enabled')
-        for channel_id, user_id in config['autoclear']['links'].items():
-            print('User_id: %s, after.id: %s' % (user_id, after.id))
+        for user_id, channel_id in config['autoclear']['links'].items():
             if user_id == after.id:
-                print('userid')
                 if after.voice.voice_channel is None and before.voice.voice_channel is not None:
                     channel = discord.utils.get(after.server.channels, id=channel_id)
-                    print('Clearing channel %s as %s left the voice channel' % (channel.name, user_id))
+                    user = discord.utils.get(after.server.members, id=user_id)
+                    print('Clearing channel \'%s\'(%s) as \'%s\'(%s) left the voice channel' % (channel.name, channel_id, user, user_id))
                     await client.purge_from(channel, limit=100, check=is_not_pinned)
 
 
