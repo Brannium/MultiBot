@@ -9,9 +9,9 @@ async def ex(client, before, after):
     config = ConfigManager.getConfig(after.server)
     print('running autoclear')
     print(config)
-    if config["autoclear"]["enabled"]:
+    if config['autoclear']['enabled']:
         print('enabled')
-        for channel_id, user_id in config["autoclear"]["links"].items():
+        for channel_id, user_id in config['autoclear']['links'].items():
             if user_id == after.id:
                 print('userid')
                 if after.voice.voice_channel is None and before.voice.voice_channel is not None:
