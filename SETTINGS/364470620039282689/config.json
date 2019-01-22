@@ -26,8 +26,8 @@
           "Techniker"
       ],
       "roleblacklist": [
-          "Admin",
           "Moderator",
+          "Admin",
           "Techniker"
       ]
   },
