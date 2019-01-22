@@ -1,7 +1,7 @@
 {
   "autorole": {
-      "aaa": "Overhaul",
       "enabled": true,
+      "aaa": "MultiServer",
       "links": {
           "Factorio": "Factorio",
           "Battlefield 1": "Battlefield",
